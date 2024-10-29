@@ -9,4 +9,5 @@ pydantic
 pytest
 
 # dev and styling
+uv # faster pip
 ruff # Fast Linting

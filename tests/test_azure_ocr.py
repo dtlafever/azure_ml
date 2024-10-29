@@ -55,6 +55,9 @@ def test_save_azure_ocr_json_no_result(azure_ocr):
     with pytest.raises(ValueError):
         azure_ocr.save_azure_ocr_json("tests/data/ocr/test_generaldoc-drillreport.json")
 
+# TODO: test __gest_nested_obj_for_key
+# TODO: test __update_max_page_count
+
 def test_get_raw_text_valid(azure_ocr_json):
     assert azure_ocr_json.get_raw_text() == "This is a test document for Azure OCR."
 
@@ -65,4 +68,33 @@ def test_get_raw_text_no_result(azure_ocr):
 def test_get_raw_text_not_supported_model_id(azure_ocr_json):
     with pytest.raises(ValueError):
         azure_ocr_json.get_raw_text(model_id="not-supported-model-id")
+
+def test_get_words_from_page_valid(azure_ocr_json):
+    words = azure_ocr_json.get_words_from_page(1)
+    validation_words = ["This", "is", "a", "test", "document", "for", "Azure", "OCR."]
+    assert len(words) == len(validation_words)
+    for i in range(len(words)):
+        assert words[i] == validation_words[i]
+
+def test_get_words_from_page_no_result(azure_ocr):
+    with pytest.raises(ValueError):
+        azure_ocr.get_words_from_page(1)
+
+def test_get_words_from_page_below_min_page(azure_ocr_json):
+    with pytest.raises(ValueError):
+        azure_ocr_json.get_words_from_page(0)
+
+def test_get_words_from_page_above_max_page(azure_ocr_json):
+    with pytest.raises(ValueError):
+        azure_ocr_json.get_words_from_page(999)
+
+def test_get_words_from_page_below_min_confidence(azure_ocr_json):
+    words = azure_ocr_json.get_words_from_page(1, min_confidence=1.0)
+    assert len(words) == 0
+
+# TODO: get_selection_marks_from_page
+# TODO: get_lines_from_page
+# TODO: get_tables_from_page
+# TODO: get_key_value_pairs_from_page
+# TODO: get_specific_words_from_page
 

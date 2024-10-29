@@ -26,6 +26,7 @@ class AzureOCR:
     def __init__(self, endpoint: str, api_key: str):
         self.__doc_intel_client = DocumentIntelligenceClient(endpoint, AzureKeyCredential(api_key))
         self.result = None
+        self.max_page_count = 1
 
     def analyze_document(self, file: str, language: str = "en", model_id: str = "prebuilt-document") -> None:
         """Takes a filename as input, run OCR on it and stores the resulting object in `self.result`.
@@ -46,6 +47,7 @@ class AzureOCR:
                 model_id=model_id, analyze_request=f, content_type="application/octet-stream", locale=language
             )
             self.result = poller.result()
+            self.__update_max_page_count()
 
 
 
@@ -116,6 +118,20 @@ class AzureOCR:
                 found_nested_obj = self.result[key]
         return found_nested_obj
 
+    @require_azure_ocr_result
+    def __update_max_page_count(self) -> None:
+        """Return the maximum page count found in the Azure OCR result.
+
+        Returns:
+            int: The maximum page count found in the Azure OCR result.
+        """
+        # self.max_page_count
+        max_page_count = 1
+        if pages := self.__get_nested_obj_for_key("pages"):
+            max_page_count = max([page["page"] for page in pages])
+
+        self.max_page_count = max_page_count
+
     # --------------------------
     # Page Functions
     #---------------------------
@@ -155,6 +171,13 @@ class AzureOCR:
         Returns:
             list: A list of words found in the page.
         """
+
+        # check if the page_number is valid
+        if page_number != -1:
+            if (page_number == 0 or
+                    page_number < -1 or
+                    page_number > self.max_page_count):
+                raise ValueError(f"Invalid page number. Page number must be between 1 and {self.result['analyzeResult']['pageCount']}.")
 
         words = []
         for page in self.result["analyzeResult"]["pages"]:
