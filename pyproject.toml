@@ -1,0 +1,40 @@
+[tool.ruff]
+exclude = [
+    ".venv",
+    ".env",
+    ".git",
+    ".gitignore",
+    ".ipynb_checkpoints",
+    ".ruff_cache",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+]
+
+line-length = 120
+indent-width = 4
+
+target-version = "py311"
+
+[tool.ruff.lint]
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]

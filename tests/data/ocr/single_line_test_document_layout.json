@@ -1,0 +1,230 @@
+{
+    "apiVersion": "2024-07-31-preview",
+    "modelId": "prebuilt-layout",
+    "stringIndexType": "textElements",
+    "content": "This is a test document for Azure OCR.",
+    "pages": [
+        {
+            "pageNumber": 1,
+            "angle": -0.05649999901652336,
+            "width": 8.5,
+            "height": 11,
+            "unit": "inch",
+            "words": [
+                {
+                    "content": "This",
+                    "polygon": [
+                        0.9879,
+                        1.018,
+                        1.2808,
+                        1.0183,
+                        1.2838,
+                        1.1736,
+                        0.9919,
+                        1.1736
+                    ],
+                    "confidence": 0.992,
+                    "span": {
+                        "offset": 0,
+                        "length": 4
+                    }
+                },
+                {
+                    "content": "is",
+                    "polygon": [
+                        1.3348,
+                        1.0185,
+                        1.4324,
+                        1.0184,
+                        1.435,
+                        1.1736,
+                        1.3375,
+                        1.1736
+                    ],
+                    "confidence": 0.997,
+                    "span": {
+                        "offset": 5,
+                        "length": 2
+                    }
+                },
+                {
+                    "content": "a",
+                    "polygon": [
+                        1.4838,
+                        1.0183,
+                        1.5584,
+                        1.0181,
+                        1.5608,
+                        1.1736,
+                        1.4863,
+                        1.1736
+                    ],
+                    "confidence": 0.995,
+                    "span": {
+                        "offset": 8,
+                        "length": 1
+                    }
+                },
+                {
+                    "content": "test",
+                    "polygon": [
+                        1.6072,
+                        1.0179,
+                        1.8539,
+                        1.017,
+                        1.8566,
+                        1.1736,
+                        1.6096,
+                        1.1736
+                    ],
+                    "confidence": 0.992,
+                    "span": {
+                        "offset": 10,
+                        "length": 4
+                    }
+                },
+                {
+                    "content": "document",
+                    "polygon": [
+                        1.8975,
+                        1.0168,
+                        2.5682,
+                        1.0178,
+                        2.5703,
+                        1.1736,
+                        1.9004,
+                        1.1736
+                    ],
+                    "confidence": 0.993,
+                    "span": {
+                        "offset": 15,
+                        "length": 8
+                    }
+                },
+                {
+                    "content": "for",
+                    "polygon": [
+                        2.6093,
+                        1.0176,
+                        2.7918,
+                        1.0172,
+                        2.7942,
+                        1.1736,
+                        2.6116,
+                        1.1736
+                    ],
+                    "confidence": 0.999,
+                    "span": {
+                        "offset": 24,
+                        "length": 3
+                    }
+                },
+                {
+                    "content": "Azure",
+                    "polygon": [
+                        2.8252,
+                        1.0172,
+                        3.2235,
+                        1.0168,
+                        3.2266,
+                        1.1713,
+                        2.8275,
+                        1.1736
+                    ],
+                    "confidence": 0.996,
+                    "span": {
+                        "offset": 28,
+                        "length": 5
+                    }
+                },
+                {
+                    "content": "OCR.",
+                    "polygon": [
+                        3.2723,
+                        1.0166,
+                        3.6579,
+                        1.0151,
+                        3.6579,
+                        1.1706,
+                        3.2758,
+                        1.1714
+                    ],
+                    "confidence": 0.989,
+                    "span": {
+                        "offset": 34,
+                        "length": 4
+                    }
+                }
+            ],
+            "lines": [
+                {
+                    "content": "This is a test document for Azure OCR.",
+                    "polygon": [
+                        0.9879,
+                        1.0176,
+                        3.6536,
+                        1.0148,
+                        3.6538,
+                        1.1712,
+                        0.9881,
+                        1.1736
+                    ],
+                    "spans": [
+                        {
+                            "offset": 0,
+                            "length": 38
+                        }
+                    ]
+                }
+            ],
+            "spans": [
+                {
+                    "offset": 0,
+                    "length": 38
+                }
+            ]
+        }
+    ],
+    "tables": [],
+    "paragraphs": [
+        {
+            "spans": [
+                {
+                    "offset": 0,
+                    "length": 38
+                }
+            ],
+            "boundingRegions": [
+                {
+                    "pageNumber": 1,
+                    "polygon": [
+                        0.9879,
+                        1.0176,
+                        3.6536,
+                        1.0148,
+                        3.6538,
+                        1.1712,
+                        0.9881,
+                        1.174
+                    ]
+                }
+            ],
+            "content": "This is a test document for Azure OCR."
+        }
+    ],
+    "styles": [],
+    "contentFormat": "text",
+    "sections": [
+        {
+            "spans": [
+                {
+                    "offset": 0,
+                    "length": 38
+                }
+            ],
+            "elements": [
+                "/paragraphs/0"
+            ]
+        }
+    ]
+}

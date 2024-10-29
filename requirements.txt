@@ -1,0 +1,12 @@
+# Azure Libraries
+azure-ai-documentintelligence # Azure OCR
+
+# tools
+python-decouple # Reading .env files
+pydantic
+
+# testing
+pytest
+
+# dev and styling
+ruff # Fast Linting
